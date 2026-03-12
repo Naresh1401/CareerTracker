@@ -29,7 +29,7 @@ export function Onboarding() {
     preferredIndustries: '',
     preferredLocations: '',
     workMode: 'Remote',
-    weeklyAppTarget: 10,
+    weeklyAppTarget: 50,
     dreamCompanies: '',
     courses: '',
     weeklyStudyHours: 10,

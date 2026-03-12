@@ -15,7 +15,7 @@ export const EMPTY_PROFILE: Profile = {
   preferredLocations: [],
   workMode: '',
   searchStartDate: '',
-  weeklyAppTarget: 5,
+  weeklyAppTarget: 50,
   dreamCompanies: [],
   courses: [],
   weeklyStudyHours: 10,
