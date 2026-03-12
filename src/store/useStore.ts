@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { Application, ResumeVersion, RoadmapWeek, Question, Profile, TabId, TimetableBlock, SavedJobDescription, TailoringSession, DashboardFilter } from '../types'
-import { DEMO_PROFILE, SEED_APPLICATIONS, SEED_RESUME_VERSIONS, SEED_ROADMAP, SEED_QUESTIONS, nextId, generateSeedFromDomain } from '../constants/seed-data'
+import { EMPTY_PROFILE, nextId, generateSeedFromDomain } from '../constants/seed-data'
 import { getDomainPreset } from '../constants/domain-presets'
 import type { DomainId } from '../constants/domain-presets'
 
@@ -73,10 +73,10 @@ export const useStore = create<AppState>((set) => ({
   activeTab: 'dashboard',
   setActiveTab: (tab) => set({ activeTab: tab }),
 
-  profile: DEMO_PROFILE,
+  profile: EMPTY_PROFILE,
   updateProfile: (data) => set(s => ({ profile: { ...s.profile, ...data } })),
 
-  applications: SEED_APPLICATIONS,
+  applications: [],
   addApplication: (app) => set(s => {
     const now = new Date().toISOString().split('T')[0]
     const newApp: Application = {
@@ -104,7 +104,7 @@ export const useStore = create<AppState>((set) => ({
     applications: s.applications.filter(a => a.id !== id)
   })),
 
-  resumeVersions: SEED_RESUME_VERSIONS,
+  resumeVersions: [],
   addResumeVersion: (rv) => set(s => ({
     resumeVersions: [...s.resumeVersions, { ...rv, id: nextId() }]
   })),
@@ -115,7 +115,7 @@ export const useStore = create<AppState>((set) => ({
     resumeVersions: s.resumeVersions.filter(r => r.id !== id)
   })),
 
-  roadmap: SEED_ROADMAP,
+  roadmap: [],
   toggleRoadmapComplete: (id) => set(s => ({
     roadmap: s.roadmap.map(r => r.id === id ? { ...r, completed: !r.completed } : r)
   })),
@@ -129,7 +129,7 @@ export const useStore = create<AppState>((set) => ({
     })
   })),
 
-  questions: SEED_QUESTIONS,
+  questions: [],
   addQuestion: (q) => set(s => ({ questions: [...s.questions, { ...q, id: nextId() }] })),
   addQuestions: (qs) => set(s => ({ questions: [...s.questions, ...qs.map(q => ({ ...q, id: nextId() }))] })),
   cycleQuestionStatus: (id) => set(s => ({
@@ -159,7 +159,7 @@ export const useStore = create<AppState>((set) => ({
 
   showProfile: false,
   setShowProfile: (v) => set({ showProfile: v }),
-  showOnboarding: false,
+  showOnboarding: true,
   setShowOnboarding: (v) => set({ showOnboarding: v }),
   applicationsView: 'table',
   setApplicationsView: (v) => set({ applicationsView: v }),
