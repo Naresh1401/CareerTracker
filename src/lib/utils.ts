@@ -35,8 +35,10 @@ export function calculateHealthScore(
   questions: Question[],
   roadmap: RoadmapWeek[],
   resumeVersions: ResumeVersion[],
+  weeklyAppTarget = 400,
 ): number {
   const appCount = applications.length
+  const appGoal = weeklyAppTarget
   const interviews = applications.filter(a =>
     ['Recruiter Screen', 'Phone Screen', 'Hiring Manager', 'Technical Interview', 'Case Study', 'Panel Interview', 'Final Round', 'Offer', 'Accepted'].includes(a.status)
   ).length
@@ -47,7 +49,7 @@ export function calculateHealthScore(
   const resumeCount = resumeVersions.length
 
   const score = Math.min(100, Math.round(
-    (Math.min(appCount, 20) / 20) * 25 +
+    (Math.min(appCount, appGoal) / appGoal) * 25 +
     convRate * 25 * 100 / 100 +
     roadmapPct * 20 * 100 / 100 +
     confidentPct * 15 * 100 / 100 +

@@ -103,7 +103,7 @@ export function Dashboard() {
   const thisWeekApps = momentum.appliedThisWeek
   const roadmapPct = roadmap.length > 0 ? Math.round(roadmap.filter(r => r.completed).length / roadmap.length * 100) : 0
   const confidentPct = questions.length > 0 ? Math.round(questions.filter(q => q.status === 'Confident').length / questions.length * 100) : 0
-  const score = calculateHealthScore(applications, questions, roadmap, resumeVersions)
+  const score = calculateHealthScore(applications, questions, roadmap, resumeVersions, weeklyTarget)
   const scoreColor = getScoreColor(score)
   const gaugeData = [{ value: score, fill: scoreColor }]
 
@@ -293,7 +293,7 @@ export function Dashboard() {
             {getScoreLabel(score)}
           </p>
           <div className="grid grid-cols-2 gap-x-6 gap-y-1 mt-4 text-xs text-gray-500 dark:text-gray-400 w-full">
-            <span>Applications</span><span className="text-right font-mono text-gray-700 dark:text-gray-300">{Math.min(applications.length, 20)}/20</span>
+            <span>Applications</span><span className="text-right font-mono text-gray-700 dark:text-gray-300">{Math.min(applications.length, weeklyTarget)}/{weeklyTarget}</span>
             <span>Interviews</span><span className="text-right font-mono text-gray-700 dark:text-gray-300">{conversions.responseToInterview}%</span>
             <span>Roadmap</span><span className="text-right font-mono text-gray-700 dark:text-gray-300">{roadmapPct}%</span>
             <span>Confidence</span><span className="text-right font-mono text-gray-700 dark:text-gray-300">{confidentPct}%</span>
