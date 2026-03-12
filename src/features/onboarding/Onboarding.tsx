@@ -29,7 +29,8 @@ export function Onboarding() {
     preferredIndustries: '',
     preferredLocations: '',
     workMode: 'Remote',
-    weeklyAppTarget: 50,
+    weeklyAppTarget: 400,
+    monthlyInterviewTarget: 3,
     dreamCompanies: '',
     courses: '',
     weeklyStudyHours: 10,
@@ -59,6 +60,7 @@ export function Onboarding() {
       currentStatus: form.currentStatus,
       workMode: form.workMode,
       weeklyAppTarget: form.weeklyAppTarget,
+      monthlyInterviewTarget: form.monthlyInterviewTarget,
       weeklyStudyHours: form.weeklyStudyHours,
       linkedIn: form.linkedIn,
       github: form.github,
@@ -186,6 +188,7 @@ export function Onboarding() {
                   </select>
                 </div>
                 <Input label="Weekly Application Target" type="number" value={form.weeklyAppTarget} onChange={e => set('weeklyAppTarget', +e.target.value)} min={1} />
+                <Input label="Monthly Interview Target" type="number" value={form.monthlyInterviewTarget} onChange={e => set('monthlyInterviewTarget', +e.target.value)} min={1} />
               </div>
               <Input label="Dream Companies (comma-separated)" value={form.dreamCompanies} onChange={e => set('dreamCompanies', e.target.value)} placeholder="Google, OpenAI, Stripe" />
             </div>

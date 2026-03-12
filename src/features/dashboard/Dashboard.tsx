@@ -251,7 +251,7 @@ export function Dashboard() {
           onClick={() => goTo('applications', { status: '_active' })}
         />
         <InteractiveStatCard
-          label="Interviews" value={interviews} sub={`${conversions.appliedToResponse}% response rate`}
+          label="Interviews" value={interviews} sub={`Target: ${profile.monthlyInterviewTarget ?? 3}/month · ${conversions.appliedToResponse}% response`}
           color="text-orange-600 dark:text-orange-400" icon={<Users className="w-5 h-5" />}
           onClick={() => goTo('applications', { status: '_interviews' })}
         />

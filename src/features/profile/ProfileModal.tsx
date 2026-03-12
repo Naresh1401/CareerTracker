@@ -52,6 +52,7 @@ export function ProfileModal() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <Input label="Weekly App Target" type="number" value={form.weeklyAppTarget} onChange={e => setForm({ ...form, weeklyAppTarget: +e.target.value })} />
+              <Input label="Monthly Interview Target" type="number" value={form.monthlyInterviewTarget} onChange={e => setForm({ ...form, monthlyInterviewTarget: +e.target.value })} />
               <Input label="Weekly Study Hours" type="number" value={form.weeklyStudyHours} onChange={e => setForm({ ...form, weeklyStudyHours: +e.target.value })} />
             </div>
             <Input label="Target Roles (comma-separated)" value={form.targetRoles.join(', ')} onChange={e => setForm({ ...form, targetRoles: e.target.value.split(',').map(s => s.trim()).filter(Boolean) })} />

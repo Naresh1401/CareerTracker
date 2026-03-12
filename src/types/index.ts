@@ -148,6 +148,7 @@ export interface Profile {
   workMode: string
   searchStartDate: string
   weeklyAppTarget: number
+  monthlyInterviewTarget: number
   dreamCompanies: string[]
   courses: string[]
   weeklyStudyHours: number
